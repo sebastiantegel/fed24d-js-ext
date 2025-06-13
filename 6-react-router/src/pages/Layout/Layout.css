@@ -1,0 +1,27 @@
+header {
+    height: 50px;
+    padding: 0.5rem;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid grey;
+
+    /* background-color: brown; */
+}
+
+main {
+    /* background-color: blueviolet; */
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 1px solid grey;
+}
+
+footer {
+    height: 150px;
+    /* background-color: chocolate; */
+}
