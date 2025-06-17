@@ -1,35 +1,33 @@
-import { useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router";
+import type { MoviesLoader } from "../loaders/moviesLoader";
+import { useState } from "react";
 import type { IMovie } from "../models/IMovie";
-import type { IOmdbResponse } from "../models/IOmdbResponse";
-import { Link } from "react-router";
+import { getMovies } from "../services/movieService";
+import { MovieSearch } from "../components/MovieSearch";
 
 export const Movies = () => {
-  const [movies, setMovies] = useState<IMovie[]>([]);
+  // const { movies } = useLoaderData() as MoviesLoader;
+  const { movies } = useLoaderData<MoviesLoader>();
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await fetch(
-        "https://omdbapi.com/?apikey=416ed51a&s=star",
-      );
-      const data: IOmdbResponse = await response.json();
+  const [moviesInState, setMoviesInState] = useState<IMovie[]>(movies);
 
-      setMovies(data.Search);
-    };
-
-    if (movies.length > 0) return;
-
-    getData();
-  });
+  const search = async (searchText: string) => {
+    const movies = await getMovies(searchText);
+    setMoviesInState(movies);
+  };
 
   return (
-    <div className="movies">
-      {movies.map((m) => (
-        <div key={m.imdbID}>
-          <Link to={`/movie/${m.imdbID}`}>
-            <h3>{m.Title}</h3>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <>
+      <MovieSearch search={search} />
+      <div className="movies">
+        {moviesInState.map((m) => (
+          <div key={m.imdbID}>
+            <Link to={`/movie/${m.imdbID}`}>
+              <h3>{m.Title}</h3>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };

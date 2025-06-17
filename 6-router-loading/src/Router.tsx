@@ -6,6 +6,8 @@ import { Layout } from "./pages/Layout/Layout";
 import { Error } from "./pages/Error";
 import { Movie } from "./pages/Movie";
 import { Movies } from "./pages/Movies";
+import { moviesLoader } from "./loaders/MoviesLoader";
+import { movieLoader } from "./loaders/MovieLoader";
 
 export const router = createBrowserRouter([
   {
@@ -31,10 +33,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/movies",
+        loader: moviesLoader,
         element: <Movies />,
       },
       {
         path: "/movie/:id",
+        loader: movieLoader,
         element: <Movie />,
       },
     ],
