@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import { TodoReducer } from "../reducers/TodoReducer";
+import { TodoActionTypes, TodoReducer } from "../reducers/TodoReducer";
 
 export const TodoApp = () => {
   //   const [todos, setTodos] = useState<Todo[]>([]);
@@ -9,7 +9,7 @@ export const TodoApp = () => {
   const addTodo = (text: string) => {
     // setTodos([...todos, new Todo(text)]);
     dispatch({
-      type: "ADDED",
+      type: TodoActionTypes.ADDED,
       payload: text,
     });
   };
@@ -17,7 +17,7 @@ export const TodoApp = () => {
   const removeTodo = (id: number) => {
     // setTodos(todos.filter((t) => t.id !== id));
     dispatch({
-      type: "REMOVED",
+      type: TodoActionTypes.REMOVED,
       payload: id.toString(),
     });
   };
@@ -30,7 +30,7 @@ export const TodoApp = () => {
     //   }),
     // );
     dispatch({
-      type: "TOGGLED",
+      type: TodoActionTypes.TOGGLED,
       payload: id.toString(),
     });
   };
