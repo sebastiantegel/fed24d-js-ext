@@ -1,10 +1,10 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { CartActionTypes, CartReducer } from "../reducers/CartReducer";
 import type { Product } from "../models/Product";
 
 export const Products = () => {
   const [cart, dispatch] = useReducer(CartReducer, []);
-  const [products, setProducts] = useState<Product[]>([
+  const products: Product[] = [
     {
       name: "Golfboll",
       price: 100,
@@ -17,7 +17,7 @@ export const Products = () => {
       imageUrl: "",
       description: "dolor sit amet",
     },
-  ]);
+  ];
 
   const increase = (productName: string) => {
     dispatch({
