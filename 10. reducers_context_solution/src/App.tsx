@@ -1,14 +1,9 @@
+import { RouterProvider } from "react-router";
 import "./App.css";
-import { Products } from "./components/Products";
-import { TodoApp } from "./components/TodoApp";
+import { router } from "./Router";
 
 function App() {
-  return (
-    <>
-      {/* <Products /> */}
-      <TodoApp />
-    </>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

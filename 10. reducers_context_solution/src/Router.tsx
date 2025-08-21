@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router";
-import { TodoApp } from "./components/TodoApp";
-import { Products } from "./components/Products";
+import { TodoApp } from "./pages/TodoApp";
+import { Products } from "./pages/Products";
 import { Layout } from "./pages/Layout";
+import { Cart } from "./pages/Cart";
+import { Start } from "./pages/Start";
 
 export const router = createBrowserRouter([
   {
