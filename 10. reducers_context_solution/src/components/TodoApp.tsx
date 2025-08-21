@@ -1,0 +1,17 @@
+import { useReducer } from "react";
+import { TodoReducer } from "../reducers/TodoReducer";
+import { TodoContext } from "../contexts/TodosContext";
+import { AddTodo } from "./AddTodo";
+import { Todos } from "./Todos";
+
+export const TodoApp = () => {
+  const [todos, dispatch] = useReducer(TodoReducer, []);
+
+  return (
+    <TodoContext.Provider value={{ todos, dispatch }}>
+      <AddTodo />
+
+      <Todos />
+    </TodoContext.Provider>
+  );
+};
