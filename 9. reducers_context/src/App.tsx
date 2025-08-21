@@ -5,7 +5,7 @@ import { TodoApp } from "./components/TodoApp";
 function App() {
   return (
     <>
-      <Products />
+      {/* <Products /> */}
       <TodoApp />
     </>
   );

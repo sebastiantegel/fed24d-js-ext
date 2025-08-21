@@ -6,7 +6,7 @@ export enum TodoActionTypes {
   TOGGLED,
 }
 
-type TodoAction = {
+export type TodoAction = {
   type: TodoActionTypes;
   payload: string;
 };

@@ -4,6 +4,8 @@ import type { Product } from "../models/Product";
 
 export const Products = () => {
   const [cart, dispatch] = useReducer(CartReducer, []);
+
+  // https://medieinstitutet-wie-products.azurewebsites.net/api/products
   const products: Product[] = [
     {
       name: "Golfboll",
